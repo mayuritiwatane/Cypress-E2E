@@ -9,6 +9,6 @@
   "confirmPassword": "Secure@1234",
   "inquirymassage" :"Test@inquiry",
   "websiteURL"     : "Test@websiteURL",
-  "help"           : "Test@help"
-
+  "help"           : "Test@help",
+  "productsearch"  : "iPhone"
 }
