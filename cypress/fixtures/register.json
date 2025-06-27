@@ -1,0 +1,14 @@
+{
+  "firstName": "Mayuri",
+  "lastName": "Tiwatane",
+  "email": "mayuri.tiwatane+001@example.com",
+  "loginemail": "avery.brightwell+001@example.com",
+  "telephone": "9876543210",
+  "password": "Secure@1234",
+  "loginpassword": "TestPass!2025",
+  "confirmPassword": "Secure@1234",
+  "inquirymassage" :"Test@inquiry",
+  "websiteURL"     : "Test@websiteURL",
+  "help"           : "Test@help"
+
+}
