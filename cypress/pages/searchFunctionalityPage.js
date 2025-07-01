@@ -12,7 +12,7 @@ export class searchFunctionalityPage {
     }
     enterinsearchButton(){
         cy.xpath(this.webLoacators.searchButton).click()
-    }
+    } 
     verifynameofproduct(){
         cy.xpath(this.webLoacators.verifyname).should('have.text','iPhone')
     }

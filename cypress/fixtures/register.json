@@ -10,5 +10,6 @@
   "inquirymassage" :"Test@inquiry",
   "websiteURL"     : "Test@websiteURL",
   "help"           : "Test@help",
-  "productsearch"  : "iPhone"
+  "productsearch"  : "iPhone",
+  "Country"        :"India"
 }
