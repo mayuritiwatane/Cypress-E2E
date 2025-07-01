@@ -24,7 +24,7 @@ module.exports = defineConfig({
     },
 
     env: {
-      URL: "https://naveenautomationlabs.com/opencart/index.php?route=account/register",
+      RegisterURL: "https://naveenautomationlabs.com/opencart/index.php?route=account/register",
       LOGINURL: "https://naveenautomationlabs.com/opencart/index.php?route=account/login",
       FORGOTPASSURL: "https://naveenautomationlabs.com/opencart/index.php?route=account/forgotten",
       CONTACTUSURL: "https://naveenautomationlabs.com/opencart/index.php?route=information/contact",

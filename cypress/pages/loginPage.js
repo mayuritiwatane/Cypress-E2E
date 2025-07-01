@@ -9,7 +9,7 @@ export class loginpage {
 
     }
     openURL() {
-        cy.visit(Cypress.env('loginURL'))
+        cy.visit(Cypress.env('LOGINURL'))
 
     }
     enteremail(emailID) {

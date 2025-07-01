@@ -10,7 +10,7 @@ export class forgotPassword {
 
     }
     openURL() {
-        cy.visit(Cypress.env('forgotPasswordURL'))
+        cy.visit(Cypress.env('FORGOTPASSURL'))
     }
     enterloginemail(login) {
         cy.get(this.weblocator.email).type(login)

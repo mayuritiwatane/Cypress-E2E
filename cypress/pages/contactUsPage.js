@@ -6,7 +6,7 @@ export class contactUs {
 
     }
     openURL() {
-        cy.visit(Cypress.env('contactUsURL'))
+        cy.visit(Cypress.env('CONTACTUSURL'))
 
     }
     enterfirstName(Fname) {
