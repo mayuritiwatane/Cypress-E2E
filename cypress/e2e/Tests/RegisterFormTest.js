@@ -4,7 +4,7 @@ const RegisterFormObj = new RegisterForm();
 describe('verify registerform', () => {
   let userdata;
   beforeEach(() => {
-    cy.fixture('Form').then((data) => {
+    cy.fixture('Registerform').then((data) => {
       const timestamp = Date.now();
       data.email = `user+${timestamp}@example.com`;
 
@@ -14,6 +14,8 @@ describe('verify registerform', () => {
   })
   it('verify user is able fill all required data', () => {
     RegisterFormObj.openurl();
+    cy.wait(3000);
+    RegisterFormObj.uploadFile();
     RegisterFormObj.enterFirstname(userdata.Firstname);
     RegisterFormObj.enterLastname(userdata.Lastname);
     RegisterFormObj.enterAddress(userdata.Address);

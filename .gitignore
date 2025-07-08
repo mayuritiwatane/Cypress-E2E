@@ -9,7 +9,7 @@ cypress/screenshots/
 cypress/reports/
 mochawesome-report/
 *.html
-*.json
+
 
 # Logs
 npm-debug.log*

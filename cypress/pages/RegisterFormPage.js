@@ -1,5 +1,6 @@
 export class RegisterForm {
   webLocators = {
+    FileUpload:'//input[@type="file"]',
     Firstname: '[placeholder="First Name"]',
     Lastname: '[placeholder="Last Name"]',
     Address: '//textarea[@ng-model="Adress"]',
@@ -25,6 +26,9 @@ export class RegisterForm {
   }
   openurl() {
     cy.visit(Cypress.env('RegisterFormURL'))
+  }
+   uploadFile() {
+    cy.xpath(this.webLocators.FileUpload).attachFile('file.pdf')
   }
   enterFirstname(fname) {
     cy.get(this.webLocators.Firstname).type(fname)
