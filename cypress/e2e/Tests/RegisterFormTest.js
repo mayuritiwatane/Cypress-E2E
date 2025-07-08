@@ -1,0 +1,38 @@
+import { RegisterForm } from "../../pages/RegisterFormPage";
+const RegisterFormObj = new RegisterForm();
+
+describe('verify registerform', () => {
+  let userdata;
+  beforeEach(() => {
+    cy.fixture('Form').then((data) => {
+      const timestamp = Date.now();
+      data.email = `user+${timestamp}@example.com`;
+
+      userdata = data
+    })
+
+  })
+  it('verify user is able fill all required data', () => {
+    RegisterFormObj.openurl();
+    RegisterFormObj.enterFirstname(userdata.Firstname);
+    RegisterFormObj.enterLastname(userdata.Lastname);
+    RegisterFormObj.enterAddress(userdata.Address);
+    RegisterFormObj.enterEmailaddress(userdata.Emailaddress);
+    RegisterFormObj.enterPhoneno(userdata.Phone);
+    RegisterFormObj.SelectGender();
+    RegisterFormObj.selectHobbies();
+    cy.wait(2000);
+    RegisterFormObj.enterLanguages();
+    RegisterFormObj.SelectLanguage();
+    RegisterFormObj.SelectSkills();
+    RegisterFormObj.SelectCountry();
+    cy.wait(2000);
+    RegisterFormObj.SelectYear();
+    RegisterFormObj.Selectmonth();
+    RegisterFormObj.SelectDay();
+    RegisterFormObj.enterPassword(userdata.password);
+    RegisterFormObj.enterConfirmPassword(userdata.confirmPassword);
+    RegisterFormObj.SelectSubmit();
+
+  })
+})

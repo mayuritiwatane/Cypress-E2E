@@ -1,7 +1,8 @@
 const { defineConfig } = require("cypress");
-const fs = require("fs");
 
 module.exports = defineConfig({
+      projectId: "ku86wa" ,
+
   reporter: "mochawesome", // ✅ For Mochawesome report
   reporterOptions: {
     reportDir: "cypress/reports/mochawesome",
@@ -29,6 +30,7 @@ module.exports = defineConfig({
       FORGOTPASSURL: "https://naveenautomationlabs.com/opencart/index.php?route=account/forgotten",
       CONTACTUSURL: "https://naveenautomationlabs.com/opencart/index.php?route=information/contact",
       SERCHFUNCTIONALITYURL: "https://naveenautomationlabs.com/opencart/index.php?route=product/category&path=17",
+      RegisterFormURL : "https://demo.automationtesting.in/Register.html"
     },
 
     chromeWebSecurity: false,
