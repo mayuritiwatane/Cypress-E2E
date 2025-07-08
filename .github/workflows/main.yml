@@ -1,37 +1,54 @@
-run-tests:
-  name: Run Cypress on ${{ matrix.browser }}
-  runs-on: ubuntu-latest
-  strategy:
-    matrix:
-      browser: [chrome, firefox, edge]
+name: Cypress Tests
 
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 18
+jobs:
+  run-tests:
+    name: Run Cypress on ${{ matrix.browser }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - browser: chrome
+            os: ubuntu-latest
+          - browser: firefox
+            os: ubuntu-latest
+          - browser: edge
+            os: windows-latest
 
-    - name: Install dependencies
-      run: npm ci
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Run Cypress tests in parallel on ${{ matrix.browser }}
-      env:
-        CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-      run: |
-        npx cypress run \
-          --record \
-          --parallel \
-          --ci-build-id ${{ github.run_id }}-${{ matrix.browser }} \
-          --browser ${{ matrix.browser }} \
-          --headless \
-          --reporter mochawesome \
-          --reporter-options reportDir=cypress/reports/mochawesome,overwrite=false,html=false,json=true
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
 
-    - name: Upload JSON Reports
-      uses: actions/upload-artifact@v4
-      with:
-        name: mochawesome-${{ matrix.browser }}
-        path: cypress/reports/mochawesome/*.json
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Cypress tests in parallel on ${{ matrix.browser }}
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+        run: |
+          npx cypress run \
+            --record \
+            --parallel \
+            --ci-build-id ${{ github.run_id }}-${{ matrix.browser }} \
+            --browser ${{ matrix.browser }} \
+            --headless \
+            --reporter mochawesome \
+            --reporter-options reportDir=cypress/reports/mochawesome,overwrite=false,html=false,json=true
+
+      - name: Upload JSON Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: mochawesome-${{ matrix.browser }}
+          path: cypress/reports/mochawesome/*.json
