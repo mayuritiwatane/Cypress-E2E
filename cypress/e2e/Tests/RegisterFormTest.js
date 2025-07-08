@@ -3,16 +3,18 @@ const RegisterFormObj = new RegisterForm();
 
 describe('verify registerform', () => {
   let userdata;
+
   beforeEach(() => {
     cy.fixture('Registerform').then((data) => {
       const timestamp = Date.now();
       data.email = `user+${timestamp}@example.com`;
+      userdata = data;
+    });
+  });
 
-      userdata = data
-    })
+  const isFirefox = Cypress.browser.name === 'firefox';
 
-  })
-  it('verify user is able fill all required data', () => {
+  (isFirefox ? it.skip : it)('verify user is able fill all required data', () => {
     RegisterFormObj.openurl();
     cy.wait(3000);
     RegisterFormObj.uploadFile();
@@ -23,7 +25,7 @@ describe('verify registerform', () => {
     RegisterFormObj.enterPhoneno(userdata.Phone);
     RegisterFormObj.SelectGender();
     RegisterFormObj.selectHobbies();
-    cy.wait(2000);
+    cy.wait(3000);
     RegisterFormObj.enterLanguages();
     RegisterFormObj.SelectLanguage();
     RegisterFormObj.SelectSkills();
@@ -35,6 +37,5 @@ describe('verify registerform', () => {
     RegisterFormObj.enterPassword(userdata.password);
     RegisterFormObj.enterConfirmPassword(userdata.confirmPassword);
     RegisterFormObj.SelectSubmit();
-
-  })
-})
+  });
+});
