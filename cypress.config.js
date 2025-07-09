@@ -30,7 +30,9 @@ module.exports = defineConfig({
       FORGOTPASSURL: "https://naveenautomationlabs.com/opencart/index.php?route=account/forgotten",
       CONTACTUSURL: "https://naveenautomationlabs.com/opencart/index.php?route=information/contact",
       SERCHFUNCTIONALITYURL: "https://naveenautomationlabs.com/opencart/index.php?route=product/category&path=17",
-      RegisterFormURL : "https://demo.automationtesting.in/Register.html"
+      RegisterFormURL : "https://demo.automationtesting.in/Register.html",
+      APIKey: "f73a469e584a66e874d6cb131119d435",
+      APIToken: "ATTA4ddaf93e47ed7c6a583406555d628ac0a30cce09c222934269c6a12b6e7c9a0004505CAF"
     },
 
     chromeWebSecurity: false,
